@@ -1,0 +1,22 @@
+<!--<form action="index.html" method="post">
+  <input type="text" name="name" placeholder="Adınız"><br/>
+  <input type="text" name="surname" placeholder="Soyadınız"><br/>
+  <input type="text" name="email" placeholder="Email adresiniz"><br/>
+  <input type="text" name="phone" placeholder="Telefon Numarası"><br/>
+  <textarea name="message" placeholder="Mesaj"></textarea><br/>
+  <input type="submit">
+</form>
+-->
+
+<% unless @params.nil? %>
+  Name: <%= @params['name'] %>
+<% end %>
+
+<%= form_for :contact_post_path, method: :post, html: { class: 'hello'} do |f| %>
+  <%= f.text_field :name, placeholder: 'Name' %>
+  <%= f.text_field :surname, placeholder: 'Surname' %>
+  <%= f.email_field :email, placeholder: 'Email' %>
+  <%= f.phone_field :phone, placeholder: 'Phone Number' %>
+  <%= f.text_area :messages, placeholder: 'Message' %>
+  <%= f.submit %>
+<% end %>

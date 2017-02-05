@@ -1,0 +1,13 @@
+<h1>Edit Post</h1>
+<% if @post.errors.any? %>
+  <p>
+    <%= @post.errors.full_messages %>
+  </p>
+<% end %>
+<%= form_for @post, url: posts_update_path do |f| %>
+  <%= f.text_field :title, placeholder: 'Title' %>
+  <%= f.text_field :content, placeholder: 'Content' %>
+  <%= f.text_field :slug, placeholder: 'Slug'  %>
+  <%= f.text_field :rating, placeholder: 'Point' %>
+  <%= f.submit "Enter" %>
+<% end %>

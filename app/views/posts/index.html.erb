@@ -1,0 +1,15 @@
+<h1>Posts</h1>
+
+<%= link_to 'Add New Post', posts_new_path %>
+
+<% @posts.each do |post| %>
+  <p>
+    Title: <%= link_to post.title, posts_show_path(post.slug) %> <br/>
+    Content: <%= post.content %> <br/>
+    Date Created: <%= post.created_at %> <br/>
+    Date Updated: <%= post.updated_at %> <br/>
+    Slug: <%= post.slug %> <br/>
+    <%= link_to "Edit", posts_edit_path(post.slug) %>
+    <%= button_to "Delete", posts_destroy_path(post.slug), method: :delete, data: { confirm: "Are you sure?"} %>
+  </p>
+<% end %>

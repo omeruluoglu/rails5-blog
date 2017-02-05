@@ -1,0 +1,14 @@
+<h1>Yeni Kayıt Ekle</h1>
+<% if @post.errors.any? %>
+  <p>
+    <%= @post.errors.full_messages %>
+  </p>
+<% end %>
+
+<%= form_for @post do |f| %>
+  <%= f.text_field :title, placeholder: 'Başlık' %>
+  <%= f.text_field :content, placeholder: 'İçerik' %>
+  <%= f.text_field :slug, placeholder: 'Slug'  %>
+  <%= f.text_field :rating, placeholder: 'Puan' %>
+  <%= f.submit "Enter" %>
+<% end %>

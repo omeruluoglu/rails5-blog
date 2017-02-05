@@ -1,0 +1,11 @@
+<h1>Edit Category</h1>
+<% if @category.errors.any? %>
+  <p>
+    <%= @category.errors.full_messages %>
+  </p>
+<% end %>
+<%= form_for @category do |f| %>
+  <%= f.text_field :name, placeholder: 'Name' %>
+  <%= f.text_field :description, placeholder: 'Description' %>
+  <%= f.submit "Enter" %>
+<% end %>
